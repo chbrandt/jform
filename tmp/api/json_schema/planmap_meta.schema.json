@@ -1,0 +1,114 @@
+{
+  "$id": "planmap_meta.schema.json",
+
+  "title": "GMAP package schema",
+  "$comment": "Define GMAP data package structure",
+
+  "type" : "object",
+
+  "definitions": {
+    "string_or_null": {
+      "anyOf": [
+        {"type": "string" },
+        {"type": "null" }
+      ]
+    }
+  },
+
+  "properties": {
+
+    "Map version" : {
+      "anyOf": [
+        {"type": "string" },
+        {"type": "number" },
+        {"type": "null" }
+      ]
+    },
+    
+    "Title of map": { "type" : "string" },
+
+    "Target body": { "$ref" : "#/definitions/string_or_null" },
+
+    "Type": { "$ref" : "#/definitions/string_or_null" },
+
+    "Output scale": { "$ref" : "#/definitions/string_or_null" },
+
+    "Original Coordinate Reference System": { "$ref" : "#/definitions/string_or_null" },
+
+    "Data used": { "$ref" : "#/definitions/string_or_null" },
+
+    "DOI of companion paper(s)": { "$ref" : "#/definitions/string_or_null" },
+
+    "Short description": { "$ref" : "#/definitions/string_or_null" },
+
+    "Heritage used": { "$ref" : "#/definitions/string_or_null" },
+
+
+
+
+    "Number of attached textures": { 
+      "anyOf": [
+        {"type": "string" },
+        {"type": "null" }
+      ]
+    },
+    "Modelling method": { 
+      "anyOf": [
+        {"type": "string" },
+        {"type": "null" }
+      ]
+    },
+    "Polygon number": { 
+      "anyOf": [
+        {"type": "string" },
+        {"type": "null" }
+      ]
+    }
+  },
+
+  "patternProperties": {
+    "^Aims": { "$ref" : "#/definitions/string_or_null" },
+    "^Author": { 
+      "type" : "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "^Acknowledgements": { "$ref" : "#/definitions/string_or_null" },
+    "^DOI" : { "$ref" : "#/definitions/string_or_null" },
+    "^Link": { "$ref" : "#/definitions/string_or_null" },
+    "^Map name": { "type": "string" },
+    "^Other comments": { "$ref" : "#/definitions/string_or_null" },
+    "^Related products": { "$ref" : "#/definitions/string_or_null" },
+    "^Standards": { "$ref" : "#/definitions/string_or_null" },
+    "^Stratigraphic info": { "$ref" : "#/definitions/string_or_null" },
+    "^Units Definition": { "$ref" : "#/definitions/string_or_null" },
+
+    "^Bounding box - Min Lat": { 
+      "type" : "number",
+      "minimum": -90,
+      "exclusiveMaximum": 90
+     },
+
+    "^Bounding box - Max Lat": { 
+      "type" : "number",
+      "exclusiveMinimum": -90,
+      "maximum": 90
+     },
+
+    "^Bounding box - Min Lon": { 
+      "type" : "number",
+      "minimum": -180,
+      "exclusiveMaximum": 360
+     },
+
+    "^Bounding box - Max Lon": { 
+      "type" : "number",
+      "exclusiveMinimum": -180,
+      "maximum": 360
+     }
+
+  },
+
+  "additionalProperties": { "type" : "boolean" }
+}

@@ -1,0 +1,68 @@
+{
+  "$id": "geometry.defs.schema.json",
+
+    "definitions": {
+
+        "latitude": {
+            "type": "number",
+            "minimum": -90,
+            "maximum": 90
+        },
+
+        "longitude": {
+            "type": "number",
+            "minimum": -180,
+            "maximum": 180
+        },
+
+        "point_coordinates": {
+            "type": "array",
+            "items": [
+                { "$ref": "#/definitions/longitude" },
+                { "$ref": "#/definitions/latitude" }
+            ]
+        },
+
+        "line_coordinates": {
+            "type": "array",
+            "items": [
+                {
+                    "$ref": "#/definitions/point_coordinates"
+                }
+            ],
+            "minItems": 2
+        },
+
+        "polygon_coordinates": {
+            "type": "array",
+            "items": [
+                {
+                    "$ref": "#/definitions/line_coordinates"
+                },
+                { "minItems": 4 }
+            ]
+        },
+
+        "bounding_box": {
+            "type": "array",
+            "items": [
+                { "$ref": "#/definitions/longitude" },
+                { "$ref": "#/definitions/latitude" },
+                { "$ref": "#/definitions/longitude" },
+                { "$ref": "#/definitions/latitude" }
+            ]
+        },
+
+        "polygon_geojson": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "const": "Polygon"
+                },
+                "coordinates": {
+                    "$ref": "#/definitions/polygon_coordinates"
+                }
+            }
+        }
+    }
+}

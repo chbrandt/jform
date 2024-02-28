@@ -1,0 +1,20 @@
+{
+  "title": "MapX from Ball",
+  "creators": [
+    {
+      "person_or_org": {
+        "name": "Acne",
+        "type": "organizational"
+      }
+    },
+    {
+      "person_or_org": {
+        "family_name": "Silva",
+        "given_name": "Ze",
+        "type": "personal"
+      }
+    }
+  ],
+  "publication_date": "2022",
+  "resource_type": "dataset"
+}

@@ -1,0 +1,94 @@
+{
+  "$id": "planmap_readme.schema.json",
+
+  "title": "GMAP package schema",
+  "$comment": "Define GMAP data package structure",
+
+  "type" : "object",
+
+  "properties": {
+
+    "Map version" : { "type": "integer" },
+    
+    "Title of map": { "type" : "string" },
+
+    "Target body": { "type": "string" },
+
+    "Type": { "type": "string" },
+
+    "Output scale": { "type": "string" },
+
+    "Original Coordinate Reference System": { "type": "string" },
+
+    "Data used": { "type": "string" },
+
+    "DOI of companion paper(s)": { "type": "string" },
+
+    "Short description": { "type": "string" },
+
+    "Heritage used": { "type": "string" },
+
+
+
+
+    "Number of attached textures": { 
+      "anyOf": [
+        {"type": "string" },
+        {"type": "null" }
+      ]
+    },
+    "Modelling method": { 
+      "anyOf": [
+        {"type": "string" },
+        {"type": "null" }
+      ]
+    },
+    "Polygon number": { 
+      "anyOf": [
+        {"type": "string" },
+        {"type": "null" }
+      ]
+    }
+  },
+
+  "patternProperties": {
+    "^Aims": { "type": "string" },
+    "^Author": { "type" : "string" },
+    "^Acknowledgements": { "type": "string" },
+    "^DOI" : { "type": "string" },
+    "^Link": { "type": "string" },
+    "^Map name": { "type": "string" },
+    "^Other comments": { "type": "string" },
+    "^Related products": { "type": "string" },
+    "^Standards": { "type": "string" },
+    "^Stratigraphic info": { "type": "string" },
+    "^Units Definition": { "type": "string" },
+
+    "^Bounding box - Min Lat": { 
+      "type" : "number",
+      "minimum": -90,
+      "exclusiveMaximum": 90
+     },
+
+    "^Bounding box - Max Lat": { 
+      "type" : "number",
+      "exclusiveMinimum": -90,
+      "maximum": 90
+     },
+
+    "^Bounding box - Min Lon": { 
+      "type" : "number",
+      "minimum": -180,
+      "exclusiveMaximum": 360
+     },
+
+    "^Bounding box - Max Lon": { 
+      "type" : "number",
+      "exclusiveMinimum": -180,
+      "maximum": 360
+     }
+
+  },
+
+  "additionalProperties": { "type" : "boolean" }
+}
